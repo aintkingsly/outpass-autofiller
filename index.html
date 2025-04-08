@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Outpass Filler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 10px; }
+        label { display: block; margin: 10px 0; }
+        input, select { width: 100%; padding: 5px; }
+        button { padding: 10px; width: 100%; background-color: #4CAF50; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <h2>Hostel Outpass Filler</h2>
+    <form action="/fill" method="POST">
+        <label>Outing Date: <input type="date" name="outingDate" required></label>
+        <label>Outing Time (e.g., 18.00): <input type="text" name="outingTime" value="18.00" required></label>
+        <label>Return Date: <input type="date" name="returnDate" required></label>
+        <label>Return In-Time (e.g., 20.00): <input type="text" name="returnTime" value="20.00" required></label>
+        <label>Purpose: 
+            <select name="purpose" required>
+                <option value="Shopping /Gym/ Haircut/ Xerox/ Temple">Shopping /Gym/ Haircut/ Xerox/ Temple</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner" selected>Dinner</option>
+                <option value="Home - Native">Home - Native</option>
+                <option value="Movie - Note: Night Shows Not Allowed">Movie (No Night Shows)</option>
+                <option value="Additional Classes ( Certification courses )">Additional Classes</option>
+                <option value="Medical Purpose">Medical Purpose</option>
+                <option value="Relative House - (Functions)">Relative House (Functions)</option>
+                <option value="Official - Voluntary Work">Official - Voluntary Work</option>
+                <option value="Official - Industrial Visit">Official - Industrial Visit</option>
+                <option value="Official - Sports">Official - Sports</option>
+                <option value="Official - Participating Other College Events">Official - Other College Events</option>
+                <option value="Internship">Internship</option>
+                <option value="Rituals">Rituals</option>
+            </select>
+        </label>
+        <button type="submit">Submit & Fill Form</button>
+    </form>
+
+    <script>
+        // Set today's date as default
+        const today = new Date();
+        const defaultDate = today.toISOString().split('T')[0];
+        document.querySelector('input[name="outingDate"]').value = defaultDate;
+        document.querySelector('input[name="returnDate"]').value = defaultDate;
+    </script>
+</body>
+</html>
